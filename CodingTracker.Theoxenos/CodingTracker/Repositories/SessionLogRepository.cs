@@ -47,15 +47,6 @@ public class SessionLogRepository
             using var connection = db.GetConnection();
             var logRecords = connection.Query<SessionLog>("SELECT * FROM Logs");
 
-            // var logs = logRecords.Select(l => new SessionLog
-            // {
-            //     Id = (int)l.Id,
-            //     SessionId = (int)l.SessionId,
-            //     StartTime = TimeOnly.Parse(l.StartTime),
-            //     EndTime = TimeOnly.Parse(l.EndTime),
-            //     Duration = TimeSpan.FromTicks(l.Duration)
-            // });
-
             return logRecords.ToList();
         }
         catch (Exception e)
